@@ -1,3 +1,3 @@
 
 # Gym_PRs
-https://filip582.github.io/GymPRs/
+https://patis582.github.io/GymPRs/
