@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <title>GymPRs</title>
+</head>
+<body>
+    <header class="page__header">
+        <nav class="navbar">
+            <h1 class="header__title" >Gym PRs</h1>
+            <a class="button header__button" href="#">Add PR</a>
+        </nav>
+        
+    </header>
+
+    <section class="leaderboard">
+        <h3 class="leaderboard__title">Deadlifts</h3>
+        <div class="leaderboard__top3">
+            <div class="leaderboard__place">
+                <img class="top3__img" src="./images/profile-monkey1.jpg" alt="profile-picture">
+                <span class="leaderboard__place--name">Patrik</span>
+                <div class="leaderboard__podium leaderboard__podium--second">
+                    <span class="leaderboard__podium--umisteni">2nd</span>
+                    <span class="leaderboard__podium--weight">140kg</span>
+                </div>
+            </div>
+            <div class="leaderboard__place">
+                <img class="top3__img" src="./images/profile-monkey2.webp" alt="profile-picture">
+                <span class="leaderboard__place--name">Patrik</span>
+                <div class="leaderboard__podium leaderboard__podium--first">
+                    <span class="leaderboard__podium--umisteni">1st</span>
+                    <span class="leaderboard__podium--weight">160kg</span>
+                </div>
+            </div>
+            <div class="leaderboard__place">
+                <img class="top3__img" src="./images/profile-monkey3.jpeg" alt="profile-picture">
+                <span class="leaderboard__place--name">Patrik</span>
+                <div class="leaderboard__podium leaderboard__podium--third" >
+                    <span class="leaderboard__podium--umisteni">3rd</span>
+                    <span class="leaderboard__podium--weight">110kg</span>
+                </div>
+            </div>
+        </div>
+        <table class="leaderboard__table">
+            <thead class="leaderboard__table-head">
+                <tr>
+                    <th class="leaderboard__table-heading">Name</th>
+                    <th class="leaderboard__table-heading">Place</th>
+                    <th class="leaderboard__table-heading">Weight</th>
+                </tr>
+            </thead>
+            <tbody class="leaderboard__table-body">
+                <tr class="leaderboard-row">
+                    <td class="leaderboard-cell">Patrik</td>
+                    <td class="leaderboard-cell">1</td>
+                    <td class="leaderboard-cell">160kg</td>
+                </tr>
+
+                <tr class="leaderboard-row">
+                    <td class="leaderboard-cell">Patrik</td>
+                    <td class="leaderboard-cell">2</td>
+                    <td class="leaderboard-cell">140kg</td>
+                </tr>
+
+                <tr class="leaderboard-row">
+                    <td class="leaderboard-cell">Patrik</td>
+                    <td class="leaderboard-cell">3</td>
+                    <td class="leaderboard-cell">110kg</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

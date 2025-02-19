@@ -1,0 +1,46 @@
+@layer reset, init, content, components, hambuger;
+@import url(../node_modules/normalize.css/normalize.css) layer(reset);
+@import url(layout.css) layer(content);
+@import url(components.css) layer(components);
+@import url(hamburger.css) layer(hamburger);
+
+/*fonts-------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@layer reset {
+
+  :root{
+    --background-primary: #665252;
+    --nav-background: #5A4B4B;
+    --gold: #D9B902;
+    --silver:  #AEAEAE;
+    --bronze: #BD5A14;
+    --gold-linear: linear-gradient(to top, #F5E587, #D9B902);
+    --silver-linear: linear-gradient(to top, #D9D9D9, #AEAEAE);
+    --bronze-linear: linear-gradient(to top, #DCC5B5, #BD5A14);
+    --primary: rgba(246, 247, 249, 0.41);
+    --secondary: rgba(60, 60, 60, 0.46);
+    --text-white: white;
+    --text-black: black;
+  }
+
+  html{
+    font-family: "Inter", serif;
+    font-weight: medium;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+  }
+  body{
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer init{
+    .img-responsive{
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
