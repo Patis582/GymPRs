@@ -1,4 +1,3 @@
-
 /* page header */
 
 .navbar{
@@ -18,7 +17,7 @@
     padding: 0em 1em;
     max-width: 1200px;
     margin: 0 auto;
-    grid-template-areas: "title" "top3" "table";
+    grid-template-areas: "title" "top3" "table" "quote";
     justify-items: center;
 }
 
@@ -31,6 +30,9 @@
     grid-area: top3;
     display: flex;
     align-items: end;
+}
+.leaderboard__quote{
+    grid-area: quote;
 }
 .leaderboard__place{
     display: flex;
@@ -66,4 +68,118 @@
 
 .leaderboard__table{
     grid-area: table;
+}
+.leaderboard__table{
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--secondary);
+    border-radius: 10px;
+    overflow: hidden;
+    color: var(--text-white);
+    text-align: center;
+}
+.leaderboard__table--head{
+    background: var(--primary);
+}
+.leaderboard__table--header{
+    padding: 1em;
+    font-weight: 400;
+    font-size: 14px;
+
+}
+.leaderboard__table--body{
+    font-weight: 400;
+    font-size: 12px;
+}
+.leaderboard--row{
+    border-bottom: 1px solid var(--primary);
+}
+.leaderboard--cell{
+    padding: 1em;
+}
+.leaderboard--cell:first-child{
+    width: 60%;
+    text-align: left;
+}
+.leaderboard__table--header:first-child{
+    width: 60%;
+    text-align: left;
+}
+
+.modal--AddPR {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal--AddPR__content {
+    background: var(--nav-background);
+    padding: 2em;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal--AddPR__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: var(--text-white);
+    cursor: pointer;
+}
+
+.modal--AddPR__title {
+    margin: 0;
+    font-size: 1.5em;
+    color: var(--text-white);
+}
+
+.modal--AddPR__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.modal--AddPR__label {
+    font-size: 1em;
+    color: var(--text-white);
+}
+
+.modal--AddPR__input {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid var(--primary);
+    font-size: 1em;
+}
+
+.modal--AddPR__button {
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    border: none;
+    background: var(--gold);
+    color: var(--text-white);
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.modal--AddPR__button:hover {
+    background: var(--silver);
+}
+
+.modal--AddPR__button:active {
+    background: var(--bronze);
 }

@@ -10,7 +10,7 @@
     <header class="page__header">
         <nav class="navbar">
             <h1 class="header__title" >Gym PRs</h1>
-            <a class="button header__button" href="#">Add PR</a>
+            <button class="button header__button modal--AddPR__open">Add PR</button>
         </nav>
         
     </header>
@@ -18,59 +18,85 @@
     <section class="leaderboard">
         <h3 class="leaderboard__title">Deadlifts</h3>
         <div class="leaderboard__top3">
-            <div class="leaderboard__place">
+            <article class="leaderboard__place">
                 <img class="top3__img" src="./images/profile-monkey1.jpg" alt="profile-picture">
                 <span class="leaderboard__place--name">Patrik</span>
                 <div class="leaderboard__podium leaderboard__podium--second">
                     <span class="leaderboard__podium--umisteni">2nd</span>
                     <span class="leaderboard__podium--weight">140kg</span>
                 </div>
-            </div>
-            <div class="leaderboard__place">
+            </article>
+            <article class="leaderboard__place">
                 <img class="top3__img" src="./images/profile-monkey2.webp" alt="profile-picture">
                 <span class="leaderboard__place--name">Patrik</span>
                 <div class="leaderboard__podium leaderboard__podium--first">
                     <span class="leaderboard__podium--umisteni">1st</span>
                     <span class="leaderboard__podium--weight">160kg</span>
                 </div>
-            </div>
-            <div class="leaderboard__place">
+            </article>
+            <article class="leaderboard__place">
                 <img class="top3__img" src="./images/profile-monkey3.jpeg" alt="profile-picture">
                 <span class="leaderboard__place--name">Patrik</span>
                 <div class="leaderboard__podium leaderboard__podium--third" >
                     <span class="leaderboard__podium--umisteni">3rd</span>
                     <span class="leaderboard__podium--weight">110kg</span>
                 </div>
-            </div>
+            </article>
         </div>
+        <article class="leaderboard__quote">
+            <p class="leaderboard__quote--text">"The deadlift also serves as a way to train ldhueiw gewzgduzewgqf iufgzfq fguzqgfzue "</p>
+            <p class="leaderboard__quote--author">- Mark Rippetoe</p>
+        </article>
         <table class="leaderboard__table">
-            <thead class="leaderboard__table-head">
+            <thead class="leaderboard__table--head">
                 <tr>
-                    <th class="leaderboard__table-heading">Name</th>
-                    <th class="leaderboard__table-heading">Place</th>
-                    <th class="leaderboard__table-heading">Weight</th>
+                    <th class="leaderboard__table--header">Name</th>
+                    <th class="leaderboard__table--header">Place</th>
+                    <th class="leaderboard__table--header">Weight</th>
                 </tr>
             </thead>
-            <tbody class="leaderboard__table-body">
-                <tr class="leaderboard-row">
-                    <td class="leaderboard-cell">Patrik</td>
-                    <td class="leaderboard-cell">1</td>
-                    <td class="leaderboard-cell">160kg</td>
+            <tbody class="leaderboard__table--body">
+                <tr class="leaderboard--row">
+                    <td class="leaderboard--cell">Patrik</td>
+                    <td class="leaderboard--cell">1</td>
+                    <td class="leaderboard--cell">160kg</td>
                 </tr>
 
-                <tr class="leaderboard-row">
-                    <td class="leaderboard-cell">Patrik</td>
-                    <td class="leaderboard-cell">2</td>
-                    <td class="leaderboard-cell">140kg</td>
+                <tr class="leaderboard--row">
+                    <td class="leaderboard--cell">NSIDNI</td>
+                    <td class="leaderboard--cell">2</td>
+                    <td class="leaderboard--cell">140kg</td>
                 </tr>
 
-                <tr class="leaderboard-row">
-                    <td class="leaderboard-cell">Patrik</td>
-                    <td class="leaderboard-cell">3</td>
-                    <td class="leaderboard-cell">110kg</td>
+                <tr class="leaderboard--row">
+                    <td class="leaderboard--cell">Patrik</td>
+                    <td class="leaderboard--cell">3</td>
+                    <td class="leaderboard--cell">110kg</td>
                 </tr>
             </tbody>
         </table>
     </section>
+
+    <section class="modal--AddPR">
+        <div class="modal--AddPR__content">
+            <button class="modal--AddPR__close">&times;</button>
+            <h2 class="modal--AddPR__title">Add PR</h2>
+            <form class="modal--AddPR__form">
+                <label class="modal--AddPR__label" for="name">Name</label>
+                <input class="modal--AddPR__input" type="text" id="name" name="name" maxlength="30" required>
+                <label class="modal--AddPR__label" for="weight">Weight (KG)</label>
+                <input class="modal--AddPR__input" type="number" id="weight" name="weight" required>
+                <label class="modal--AddPR__label" for="exercise">Exercise</label>
+                <select class="modal--AddPR__input" name="exercise" id="exercise">
+                    <option value="deadlift">Deadlift</option>
+                    <option value="squat">Squat</option>
+                    <option value="benchpress">Benchpress</option>
+                </select>
+                <button class="modal--AddPR__button" type="submit">Add PR</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="./script/script.js"></script>
 </body>
 </html>
