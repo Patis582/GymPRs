@@ -1,5 +1,5 @@
 @layer reset, init, content, components, hambuger;
-@import url(../node_modules/normalize.css/normalize.css) layer(reset);
+@import url(normalize.css) layer(reset);
 @import url(layout.css) layer(content);
 @import url(components.css) layer(components);
 @import url(hamburger.css) layer(hamburger);

@@ -183,3 +183,88 @@
 .modal--AddPR__button:active {
     background: var(--bronze);
 }
+
+.modal--Login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal--Login__content {
+    background: var(--nav-background);
+    padding: 2em;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal--Login__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: var(--text-white);
+    cursor: pointer;
+}
+
+.modal--Login__title {
+    margin: 0;
+    font-size: 1.5em;
+    color: var(--text-white);
+}
+
+.modal--Login__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.modal--Login__label {
+    font-size: 1em;
+    color: var(--text-white);
+}
+
+.modal--Login__input {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid var(--primary);
+    font-size: 1em;
+}
+
+.modal--Login__button {
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    border: none;
+    background: var(--gold);
+    color: var(--text-white);
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.modal--Login__button:hover {
+    background: var(--silver);
+}
+
+.modal--Login__button:active {
+    background: var(--bronze);
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
