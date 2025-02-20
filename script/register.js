@@ -83,3 +83,12 @@ onAuthStateChanged(auth, user => {
     console.log('Nikdo není přihlášen');
   }
 });
+
+//kontrrola pri pridani PR jestli je uzivatel prihlasen
+window.checkUser = function() {
+  onAuthStateChanged(auth, user => {
+    if (!user) {
+      window.location.href = "./login.html";
+    }
+  });
+}
