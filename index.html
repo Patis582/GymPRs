@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script/register.js" type="module" defer></script>
     <link rel="stylesheet" href="./styles/main.css">
     <title>GymPRs</title>
 </head>
 <body>
     <header class="page__header">
         <nav class="navbar">
-            <h1 class="header__title" >Gym PRs</h1>
+            <h1 class="header__title" ><a class="header__title" href="./index.html">Gym PRs</a></h1>
             <button class="button header__button modal--AddPR__open">Add PR</button>
         </nav>
         
@@ -93,6 +94,7 @@
                     <option value="benchpress">Benchpress</option>
                 </select>
                 <button class="modal--AddPR__button" type="submit">Add PR</button>
+                <button class="button button--small" onclick="logout()">Log Out</button>
             </form>
         </div>
     </section>

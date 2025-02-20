@@ -13,6 +13,8 @@ const firebaseConfig = {
   measurementId: "G-NCMXSM5425"
 };
 
+
+
 // Inicializace Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
