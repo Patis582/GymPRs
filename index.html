@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./script/register.js" type="module" defer></script>
+    <script src="./script/script.js" type="module" defer></script>
+    <script src="./script/leaderboarddata.js" type="module" defer></script>
     <link rel="stylesheet" href="./styles/main.css">
     <title>GymPRs</title>
 </head>
@@ -52,28 +53,12 @@
             <thead class="leaderboard__table--head">
                 <tr>
                     <th class="leaderboard__table--header">Name</th>
-                    <th class="leaderboard__table--header">Place</th>
+                    <th class="leaderboard__table--header">Exercise</th>
                     <th class="leaderboard__table--header">Weight</th>
                 </tr>
             </thead>
             <tbody class="leaderboard__table--body">
-                <tr class="leaderboard--row">
-                    <td class="leaderboard--cell">Patrik</td>
-                    <td class="leaderboard--cell">1</td>
-                    <td class="leaderboard--cell">160kg</td>
-                </tr>
-
-                <tr class="leaderboard--row">
-                    <td class="leaderboard--cell">NSIDNI</td>
-                    <td class="leaderboard--cell">2</td>
-                    <td class="leaderboard--cell">140kg</td>
-                </tr>
-
-                <tr class="leaderboard--row">
-                    <td class="leaderboard--cell">Patrik</td>
-                    <td class="leaderboard--cell">3</td>
-                    <td class="leaderboard--cell">110kg</td>
-                </tr>
+                <!-- Data will be dynamically inserted here -->
             </tbody>
         </table>
     </section>
@@ -83,22 +68,18 @@
             <button class="modal--AddPR__close">&times;</button>
             <h2 class="modal--AddPR__title">Add PR</h2>
             <form class="modal--AddPR__form">
-                <label class="modal--AddPR__label" for="name">Name</label>
-                <input class="modal--AddPR__input" type="text" id="name" name="name" maxlength="30" required>
                 <label class="modal--AddPR__label" for="weight">Weight (KG)</label>
-                <input class="modal--AddPR__input" type="number" id="weight" name="weight" required>
+                <input class="modal--AddPR__input" type="number" id="prWeight" name="weight" required>
                 <label class="modal--AddPR__label" for="exercise">Exercise</label>
-                <select class="modal--AddPR__input" name="exercise" id="exercise">
+                <select class="modal--AddPR__input" name="exercise" id="prExercise">
                     <option value="deadlift">Deadlift</option>
                     <option value="squat">Squat</option>
                     <option value="benchpress">Benchpress</option>
                 </select>
-                <button class="modal--AddPR__button" type="submit">Add PR</button>
+                <button class="modal--AddPR__button" type="submit" onclick="addPR(event)">Add PR</button>
                 <button class="button button--small" onclick="logout()">Log Out</button>
             </form>
         </div>
     </section>
-
-    <script src="./script/script.js"></script>
 </body>
 </html>
