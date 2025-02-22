@@ -88,10 +88,10 @@ window.logout = function() {
 onAuthStateChanged(auth, user => {
   if (user) {
     console.log('Uživatel přihlášen:', user);
-    loadPRs(); // Načtení PRs po ověření přihlášení
+     // Načtení PRs po ověření přihlášení
   } else {
     console.log('Nikdo není přihlášen');
-    loadPRs(); // Načtení PRs i když není nikdo přihlášen
+     // Načtení PRs i když není nikdo přihlášen
   }
 });
 
@@ -111,7 +111,8 @@ window.addPR = async function(event) {
         date: new Date().toISOString()
       });
       alert("PR úspěšně přidán!");
-      loadPRs(); // Načtení PRs po přidání nového PR
+       // Načtení PRs po přidání nového PR
+      loadPRs();
     } catch (error) {
       console.error("Chyba při přidávání PR:", error);
     }
@@ -124,21 +125,25 @@ window.addPR = async function(event) {
 // Načtení PRs z Firestore
 window.loadPRs = async function() {
   try {
+    console.log("Loading PRs...");
     const querySnapshot = await getDocs(collection(db, "prs"));
     const tbody = document.querySelector('.leaderboard__table--body');
     tbody.innerHTML = ''; // Vyčistí tabulku před přidáním nových dat
 
-    querySnapshot.forEach(async (docSnapshot) => {
+    for (const docSnapshot of querySnapshot.docs) {
       const data = docSnapshot.data();
       console.log("Document data:", data);
+
       const userDoc = await getDoc(doc(db, "users", data.userId));
       const userData = userDoc.data();
+      console.log("User data:", userData);
+
       const row = document.createElement('tr');
       row.classList.add('leaderboard--row');
 
       const nameCell = document.createElement('td');
       nameCell.classList.add('leaderboard--cell');
-      nameCell.textContent = userData.name; // Použijte jméno uživatele z Firestore
+      nameCell.textContent = userData.name;
 
       const exerciseCell = document.createElement('td');
       exerciseCell.classList.add('leaderboard--cell');
@@ -153,7 +158,7 @@ window.loadPRs = async function() {
       row.appendChild(weightCell);
 
       tbody.appendChild(row);
-    });
+    }
   } catch (error) {
     console.error("Error loading PRs:", error);
   }
