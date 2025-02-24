@@ -268,9 +268,33 @@ window.loadTop3 = async function() {
   }
 };
 
-
-
-
+window.randomQuote = async function() {
+  const quotes = [
+   "Cvičím, abych měl bicepsy, co přitahujou víc pozornosti než moje osobnost",
+"Moje oblíbená aktivita? Hledání činek, které nejsou příliš těžké, ale ani moc lehké",
+"Cvičení je skvélé, ale jíst pizzu po tréninku je fakt nejlepší",
+"Nejvíc se zapotím, když vybírám mezi bench press a jít na kafe",
+"Zvedám činky, ale jenom když někdo kouká, protože to je ten pravý motiv",
+"Dneska budu cvičit, ale zítra je taky den, že jo?",
+"Moje fitness cíle? Být schopný otevřít sklenici od okurek bez pomoci",
+"Cvičím, protože chci mít tělo jako socha, ale zatím vypadám spíš jako pytel brambor",
+"Jsem v posilovně častěji než ve vlastní kuchyni",
+"Když jsem v posilovně, všechny činky vypadají jako moje nové kamarádky",
+"Můj plán? Cvičit tak tvrdě, až se budu potit i při odpočinku",
+"Cvičím, abych byl silný, ale hlavně abych mohl sníst víc jídla",
+"V posilovně jsem jako doma... tak jako doma u televize",
+"Cvičím, protože chci mít tělo jako Adonis, ale zatím mám tělo spíš jako ředitel firmy",
+"Cvičení mě nezmění, ale alespoň budu mít pořádně velkou výmluvu, proč se nedostanu na večeři",
+"Jsem tady jen pro ten post-workout protein shake a selfie",
+"Cvičím, protože potřebuju víc síly... na zvedání telefonů při práci",
+"Cvičím, ale jen když mi někdo řekne, že to není dobrý nápad, pak se do toho pustím",
+"Snažím se v posilovně zlepšit, ale už mám dost toho, jak mě ty činky pořád zklamávají",
+"Můj cíl? Dostat se na úroveň, kdy už nebudu potřebovat dovolenou po každém tréninku"
+  ];
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const randomQuote = quotes[randomIndex];
+  document.querySelector('.leaderboard__quote--text').textContent = randomQuote;
+};
 
 //kontrrola pri pridani PR jestli je uzivatel prihlasen
 window.checkUser = function() {
@@ -284,10 +308,11 @@ window.checkUser = function() {
       document.querySelector('.modal--AddPR').style.display = 'none';
     });
   });
-}
+};
 
 // Spusť načtení PRs po načtení stránky
 window.onload = function() {
   loadPRs();
   loadTop3();
+  randomQuote();
 };
