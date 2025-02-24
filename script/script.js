@@ -163,6 +163,114 @@ window.loadPRs = async function() {
     console.error("Error loading PRs:", error);
   }
 };
+//Load top3----------------------------------
+window.loadTop3 = async function() {
+  try {
+    console.log("Loading Top 3...");
+
+    // Načteme všechna PRs
+    const querySnapshot = await getDocs(collection(db, "prs"));
+    console.log("Query Snapshot Size:", querySnapshot.size);
+
+    // Inicializace objektu pro uložení dat uživatelů
+    const users = {};
+    const userIdSet = new Set(); // Sada pro ukládání všech unikátních userId
+
+    // Procházení všech PRs
+    querySnapshot.forEach(docSnapshot => {
+      const data = docSnapshot.data();
+      const userId = data.userId;
+      const exercise = data.exercise;
+      const weight = parseInt(data.weight); // Převod váhy na číslo
+    
+      // Přeskočíme neplatné váhy
+      if (isNaN(weight) || weight <= 0) {
+        console.warn("Neplatná váha:", data.weight);
+        return;
+      }
+    
+      // Přidáme userId do sady pro pozdější načtení jména
+      userIdSet.add(userId);
+    
+      // Pokud uživatel ještě není v objektu, inicializujeme ho
+      if (!users[userId]) {
+        users[userId] = {
+          userName: "Neznámý uživatel", 
+          BenchPress: 0,
+          Squat: 0,
+          Deadlift: 0,
+          total: 0
+        };
+      }
+    
+      // Najdeme nejlepší váhu pro každý cvik
+      if (exercise.toLowerCase() === "bench press" && weight > users[userId].BenchPress) {
+        users[userId].BenchPress = weight;
+      } else if (exercise.toLowerCase() === "squat" && weight > users[userId].Squat) {
+        users[userId].Squat = weight;
+      } else if (exercise.toLowerCase() === "deadlift" && weight > users[userId].Deadlift) {
+        users[userId].Deadlift = weight;
+      }
+    
+      // Po aktualizaci cviků spočítáme total
+      users[userId].total = users[userId].BenchPress + users[userId].Squat + users[userId].Deadlift;
+    });
+    
+
+    // Načtení jmen uživatelů podle userId
+    const userIdArray = Array.from(userIdSet);
+    const userPromises = userIdArray.map(async (userId) => {
+      const userDoc = await getDoc(doc(db, "users", userId));
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        console.log("User Data:", userData);
+        users[userId].userName = userData.name || "Neznámý uživatel";
+      }
+    });
+
+    // Čekáme na dokončení všech dotazů na jména
+    await Promise.all(userPromises);
+
+    // Sečteme celkové váhy pro každého uživatele
+    for (let userId in users) {
+      users[userId].total = 
+        users[userId].BenchPress + 
+        users[userId].Squat + 
+        users[userId].Deadlift;
+    }
+
+    // Převod objektu na pole a seřazení podle celkového součtu sestupně
+    const sortedUsers = Object.values(users).sort((a, b) => b.total - a.total);
+
+    // Výběr Top 3 uživatelů
+    const top3 = sortedUsers.slice(0, 3);
+    console.log("Top 3 Data:", top3);
+
+    // Změna textu pro první místo
+    if (top3[0]) {
+      document.querySelector('.leaderboard__place--name.leaderboard__place__name--first').textContent = top3[0].userName;
+      document.querySelector('.leaderboard__podium--first .leaderboard__podium--weight').textContent = "Total: " + `${top3[0].total} kg`;
+    }
+
+    // Změna textu pro druhé místo
+    if (top3[1]) {
+      document.querySelector('.leaderboard__place--name.leaderboard__place__name--second').textContent = top3[1].userName;
+      document.querySelector('.leaderboard__podium--second .leaderboard__podium--weight').textContent = "Total: " + `${top3[1].total} kg`;
+    }
+
+    // Změna textu pro třetí místo
+    if (top3[2]) {
+      document.querySelector('.leaderboard__place--name.leaderboard__place__name--third').textContent = top3[2].userName;
+      document.querySelector('.leaderboard__podium--third .leaderboard__podium--weight').textContent = "Total: " + `${top3[2].total} kg`;
+    }
+  } catch (error) {
+    console.error("Error loading Top 3:", error);
+  }
+};
+
+
+
+
 
 //kontrrola pri pridani PR jestli je uzivatel prihlasen
 window.checkUser = function() {
@@ -181,4 +289,5 @@ window.checkUser = function() {
 // Spusť načtení PRs po načtení stránky
 window.onload = function() {
   loadPRs();
+  loadTop3();
 };
