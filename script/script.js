@@ -204,7 +204,7 @@ window.loadTop3 = async function() {
       }
     
       // Najdeme nejlepší váhu pro každý cvik
-      if (exercise.toLowerCase() === "bench press" && weight > users[userId].BenchPress) {
+      if (exercise.toLowerCase() === "benchpress" && weight > users[userId].BenchPress) {
         users[userId].BenchPress = weight;
       } else if (exercise.toLowerCase() === "squat" && weight > users[userId].Squat) {
         users[userId].Squat = weight;
